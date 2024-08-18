@@ -21,7 +21,7 @@ namespace HashConsoleApp
                 }
                 else
                 {
-                    var data = Hasher.HasherSha256.ComputeWithSalt(myString);
+                    var data = HasherSha256.ComputeWithSalt(myString);
                     Console.WriteLine($"HashString: {myString}");
                     Console.WriteLine($"Salt:{data.Item2}");
                     Console.WriteLine($"Hashed string:{data.Item1}");
