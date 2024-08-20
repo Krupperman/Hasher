@@ -21,10 +21,11 @@ namespace HashConsoleApp
                 }
                 else
                 {
-                    var data = HasherSha256.ComputeWithSalt(myString);
+                    var salt = HasherSha256.GetSalt();
+                    var data = HasherSha256.ComputeWithSalt(myString,salt);
                     Console.WriteLine($"HashString: {myString}");
-                    Console.WriteLine($"Salt:{data.Item2}");
-                    Console.WriteLine($"Hashed string:{data.Item1}");
+                    Console.WriteLine($"Salt:{salt}");
+                    Console.WriteLine($"Hashed string:{data}");
                 }
             }
             

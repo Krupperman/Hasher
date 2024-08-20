@@ -5,18 +5,17 @@ namespace Hasher
 {
     public static class HasherSha256
     {     
-        static string GetSalt()
+        public static string GetSalt()
         {
             return (Guid.NewGuid()).ToString();
         }
         /// <summary>
-        /// Compute hash of string with salt guid and using sha256 algoritm
+        /// Compute hash of string with salt using sha256 algoritm
         /// </summary>
-        /// <param name="myString">string</param>
-        /// <returns>returns two strings- item1: hashedValue, item2: salt </returns>
-        public static Tuple<string,string> ComputeWithSalt(string myString)
+        /// <param name="myString">string to hash</param>
+        /// <returns>returns hashed string </returns>
+        public static string ComputeWithSalt(string myString,string salt)
         { 
-            string salt = GetSalt();
             myString += salt;
             // Create a SHA256   
             using SHA256 sha256Hash = SHA256.Create();
@@ -35,12 +34,12 @@ namespace Hasher
                 }
                 myString = builder.ToString();
             }
-            return Tuple.Create(myString, salt);
+            return myString;
         }
         /// <summary>
         /// Compute hash of string using sha256 algoritm
         /// </summary>
-        /// <param name="myString">string</param>
+        /// <param name="myString">string to hash</param>
         /// <returns> type string, parametr hashedValue </returns>
         public static string Compute(string myString)
         {
