@@ -14,9 +14,9 @@ namespace HashConsoleApp
                 Console.WriteLine("-------------------------------------------------------------------------");
                 Console.Write($"Input password: ");
                 string? myString = Console.ReadLine();
-                if(String.IsNullOrEmpty(myString)|| myString.Length < 6)
+                if(String.IsNullOrEmpty(myString)|| myString.Length < 8)
                 {
-                    Console.WriteLine("Error:Password must have at list  6 characters!");
+                    Console.WriteLine("Error:Password must have at list  8 characters!");
                     Console.WriteLine("-------------------------------------------------------------------------");
                 }
                 else
